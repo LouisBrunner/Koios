@@ -1,0 +1,21 @@
+<template name="categoriesList">
+    <div class="panel panel-default">
+        <div class="panel-heading">Categories' list</div>
+        <ul class="list-group categories">
+            {{#unless hasCategories}}
+            <li class="list-group-item">No categories yet</li>
+            {{/unless}}
+            {{#each categories}}
+            <li class="list-group-item">
+                <div class="col-xs-10">
+                    <a href="#" class="edit" data-pk="{{_id}}">{{name}}</a>
+                </div>
+                <span class="pull-right">
+                    <button type="button" class="btn btn-link btn-no-padding black-link remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                </span>
+                <div class="clearfix"></div>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

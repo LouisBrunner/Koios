@@ -1,0 +1,21 @@
+<template name="bookEdit">
+    <div id="book-edit-modal" class="modal fade" role="dialog" aria-labelledby="book-edit-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="book-edit-modal">Edit a book</h3>
+                </div>
+
+                <div class="modal-body">
+                    {{> quickForm schema="Schemas.bookForm" id="updateBookForm" type="method-update" meteormethod="updateBook" buttonContent=false id-prefix="update" doc=currentDoc}}
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary" id="book-edit-modal-submit">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

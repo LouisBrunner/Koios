@@ -1,0 +1,8 @@
+<template name="categoryAdd">
+    <div class="panel panel-default">
+        <div class="panel-heading">Add a category</div>
+        <div class="panel-body">
+            {{> quickForm schema="Schemas.categoryForm" id="insertCategoryForm" type="method" meteormethod="addCategory" buttonContent="Add" id-prefix="add"}}
+        </div>
+    </div>
+</template>

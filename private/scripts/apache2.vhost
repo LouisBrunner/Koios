@@ -1,0 +1,21 @@
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ServerName REPLACE_HOST.lbrunner.net
+
+    DocumentRoot /srv/www/lbrunner.net/public
+
+    ProxyRequests off
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    <Location />
+        ProxyPass http://localhost:REPLACE_PORT/
+        ProxyPassReverse http://localhost:REPLACE_PORT/
+    </Location>
+
+    LogLevel warn
+    ErrorLog /var/log/apache2/REPLACE_HOST.lbrunner.net.error.log
+    CustomLog /var/log/apache2/REPLACE_HOST.lbrunner.net.access.log combined
+</VirtualHost>

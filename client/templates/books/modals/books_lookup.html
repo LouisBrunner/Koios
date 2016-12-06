@@ -1,0 +1,118 @@
+<template name="bookLookup">
+    <div id="lookup-modal" class="modal fade" role="dialog" aria-labelledby="lookup-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="lookup-modal">Lookup ISBN ({{metadata.isbn}})</h3>
+                </div>
+
+                {{#if metadata.picture}}
+                <div class="modal-body">
+                    <img src="{{metadata.picture}}" class="img-responsive center-block img-rounded" alt="Preview of {{metadata.title}}">
+                </div>
+                {{/if}}
+
+                    <table class="table table-striped table-hover table-bordered">
+                        <tbody>
+                        {{#if metadata.author}}
+                            <tr>
+                                <th>ISBN</th>
+                                <td>{{metadata.isbn}}</td>
+                            </tr>
+                            <tr>
+                                <th>Author</th>
+                                <td>{{metadata.author}}</td>
+                            </tr>
+                            <tr>
+                                <th>Title</th>
+                                <td>{{metadata.title}}</td>
+                            </tr>
+                            {{#if metadata.subtitle}}
+                            <tr>
+                                <th>Subtitle</th>
+                                <td>{{metadata.subtitle}}</td>
+                            </tr>
+                            {{/if}}
+                            {{#if metadata.description}}
+                            <tr>
+                                <th>Description</th>
+                                <td>{{metadata.description}}</td>
+                            </tr>
+                            {{/if}}
+                            {{#if metadata.categories}}
+                            <tr>
+                                <th>Categories</th>
+                                <td>
+                                    {{#each metadata.categories}}
+                                    <span class="label label-default">{{this}}</span>
+                                    {{/each}}
+                                </td>
+                            </tr>
+                            {{/if}}
+                            {{#if metadata.rating}}
+                            <tr>
+                                <th>Ratings</th>
+                                <td>{{metadata.rating}} (with {{pluralize metadata.ratingsCount 'vote'}})</td>
+                            </tr>
+                            {{/if}}
+                            <tr>
+                                <th>Information</th>
+                                <td><a target="_blank" href="{{metadata.infoLink}}">link</a></td>
+                            </tr>
+                            {{#if metadata.pages}}
+                            <tr>
+                                <th>Pages</th>
+                                <td>{{pluralize metadata.pages 'page'}}</td>
+                            </tr>
+                            {{/if}}
+                            <tr>
+                                <th>Language</th>
+                                <td>{{metadata.language}}</td>
+                            </tr>
+                            <tr>
+                                <th>Public Domain</th>
+                                {{#if metadata.publicDomain}}
+                                <td class="text-success">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </td>
+                                {{else}}
+                                <td class="text-danger">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                </td>
+                                {{/if}}
+                            </tr>
+                            {{#if metadata.publisher}}
+                            <tr>
+                                <th>Publisher</th>
+                                <td>{{metadata.publisher}}</td>
+                            </tr>
+                            {{/if}}
+                            {{#if metadata.publishedDate}}
+                            <tr>
+                                <th>Published date</th>
+                                <td>{{metadata.publishedDate}}</td>
+                                <!-- <td>{{formatDate metadata.publishedDate}}</td> -->
+                            </tr>
+                            {{/if}}
+                        {{else}}
+                            {{#if metadata.loading}}
+                            <tr>
+                                <td>Loading...</td>
+                            </tr>
+                            {{else}}
+                            <tr>
+                                <td>No information found</td>
+                            </tr>
+                            {{/if}}
+                        {{/if}}
+                        </tbody>
+                    </table>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

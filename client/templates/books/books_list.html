@@ -1,0 +1,20 @@
+<template name="booksList">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button class="btn btn-primary pull-right" id="book-add">Add</button>
+            <h4 class="top-no-margin">Books' list</h4>
+            Count: <span class="badge">{{pluralize booksCount 'book'}}</span>
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive col-sm-12 no-border">
+                {{> hasFilters}}
+                {{> reactiveTable settings=settings}}
+            </div>
+        </div>
+    </div>
+
+    {{> bookLookup}}
+    {{> bookAdd}}
+    {{> bookEdit}}
+</template>

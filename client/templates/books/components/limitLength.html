@@ -1,0 +1,20 @@
+<template name="limitLength_location">
+    {{#with location}}
+        {{> limitLength}}
+    {{/with}}
+</template>
+
+<template name="limitLength_comment">
+    {{#with comment}}
+        {{> limitLength}}
+    {{/with}}
+</template>
+
+<template name="limitLength">
+    <span class="limited-content">
+        {{truncContent}}
+        {{#if moreContent}}...
+            <a tabindex="0" class="popover-button" role="button" data-toggle="popover" data-trigger="focus" data-content="{{content}}">more</a>
+        {{/if}}
+    </span>
+</template>

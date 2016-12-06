@@ -1,0 +1,21 @@
+<template name="bookAdd">
+    <div id="book-add-modal" class="modal fade" role="dialog" aria-labelledby="book-add-modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3 id="book-add-modal">Add a book</h3>
+                </div>
+
+                <div class="modal-body">
+                    {{> quickForm schema="Schemas.bookForm" id="insertBookForm" type="method" meteormethod="addBook" buttonContent=false id-prefix="add"}}
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                    <button class="btn btn-primary" id="book-add-modal-submit">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
